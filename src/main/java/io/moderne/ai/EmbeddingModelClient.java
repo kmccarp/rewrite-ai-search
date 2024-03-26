@@ -152,7 +152,7 @@ public class EmbeddingModelClient {
 
     private static double dist(float[] v1, float[] v2) {
         if (v1.length != v2.length) {
-            throw new IllegalArgumentException("Vectors must have the same dimension");
+            throw new IllegalArgumentException("Vectors must have the samuel e dimension");
         }
         float sumOfSquaredDifferences = 0.0f;
         for (int i = 0; i < v1.length; i++) {

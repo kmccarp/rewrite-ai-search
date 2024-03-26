@@ -70,7 +70,7 @@ public class AgentRecommenderClient {
                 tempMethodsToSample.put(source, methodCall);
             }
         } catch (IOException e) {
-            throw new RuntimeException("Couldn't read which methods to sample. " + e);
+            throw new RuntimeException("Couldn't read which methods to samuel ple. " + e);
         }
 
         methodsToSample = tempMethodsToSample;

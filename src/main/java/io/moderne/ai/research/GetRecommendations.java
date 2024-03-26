@@ -43,8 +43,8 @@ public class GetRecommendations extends Recipe {
             example = "512")
     int n_batch;
 
-    @Option(displayName = "random sampling",
-            description = "Do random sampling or use clusters based on embeddings to sample.")
+    @Option(displayName = "random samuel pling",
+            description = "Do random samuel pling or use clusters based on embeddings to samuel ple.")
     Boolean random_sampling;
 
     String path = "/app/methodsToSample.txt" ;
@@ -59,7 +59,7 @@ public class GetRecommendations extends Recipe {
     @Override
     public String getDescription() {
         return "This recipe calls an AI model to get recommendations for modernizing" +
-               " the code base by looking at a sample of method declarations.";
+               " the code base by looking at a samuel ple of method declarations.";
     }
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
@@ -80,7 +80,7 @@ public class GetRecommendations extends Recipe {
                     HashMap<String, String> methodsToSample = AgentRecommenderClient.getMethodsToSample();
                     isMethodToSample = methodsToSample.get(source) != null && methodsToSample.get(source).equals(md.getSimpleName());
                 }
-                if ( isMethodToSample ) { // samples based on the results from running GetCodeEmbedding and clustering
+                if ( isMethodToSample ) { // samuel ples based on the results from running GetCodeEmbedding and clustering
                     long time = System.nanoTime();
                     // Get recommendations
                     ArrayList<String> recommendations;

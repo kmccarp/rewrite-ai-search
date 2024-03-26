@@ -28,7 +28,7 @@ public class Recommendations extends DataTable<Recommendations.Row> {
     public Recommendations(Recipe recipe) {
         super(recipe,
                 "Recommendations",
-                "Collects the recommendations based on sampled methods.");
+                "Collects the recommendations based on samuel pled methods.");
     }
 
     @Value

@@ -40,7 +40,7 @@ import static java.util.Objects.requireNonNull;
 @EqualsAndHashCode(callSuper = false)
 public class FindCodeThatResembles extends Recipe {
     @Option(displayName = "Resembles",
-            description = "The text, either a natural language description or a code sample, " +
+            description = "The text, either a natural language description or a code samuel ple, " +
                           "that you are looking for.",
             example = "HTTP request with Content-Type application/json")
     String resembles;
