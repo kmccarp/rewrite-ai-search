@@ -44,15 +44,19 @@ import static java.util.Objects.requireNonNull;
 @EqualsAndHashCode(callSuper = false)
 public class FindCodeThatResembles extends ScanningRecipe<FindCodeThatResembles.Accumulator> {
     @Option(displayName = "Resembles",
-            description = "The text, either a natural language description or a code sample, " +
-                          "that you are looking for.",
+            description = """
+                          The text, either a natural language description or a code sample, \
+                          that you are looking for.\
+                          """,
             example = "HTTP request with Content-Type application/json")
     String resembles;
 
     @Option(displayName = "top k methods",
-            description = "Since AI based matching has a higher latency than rules based matching, " +
-                          "we do a first pass to find the top k methods using embeddings. " +
-                          "To narrow the scope, you can specify the top k methods as method filters.",
+            description = """
+                          Since AI based matching has a higher latency than rules based matching, \
+                          we do a first pass to find the top k methods using embeddings. \
+                          To narrow the scope, you can specify the top k methods as method filters.\
+                          """,
             example = "1000")
     int k;
 
@@ -67,8 +71,10 @@ public class FindCodeThatResembles extends ScanningRecipe<FindCodeThatResembles.
 
     @Override
     public String getDescription() {
-        return "This recipe uses two phase AI approach to find a method invocation" +
-               " that resembles a search string.";
+        return """
+               This recipe uses two phase AI approach to find a method invocation\
+                that resembles a search string.\
+               """;
     }
 
     @Value

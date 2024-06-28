@@ -47,8 +47,10 @@ public class GetCodeEmbedding extends Recipe {
 
     @Override
     public String getDescription() {
-        return "This recipe calls an AI model to get an embedding for either classes or methods" +
-               " which can then be used for downstream tasks.";
+        return """
+               This recipe calls an AI model to get an embedding for either classes or methods\
+                which can then be used for downstream tasks.\
+               """;
     }
 
     @Override

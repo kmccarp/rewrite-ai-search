@@ -54,12 +54,12 @@ public class FindCommentsLanguage extends Recipe {
             @Override
             public Space visitSpace(Space space, Space.Location loc, ExecutionContext ctx) {
                 return space.withComments(ListUtils.map(space.getComments(), comment -> {
-                    if (comment instanceof TextComment) {
+                    if (comment instanceof TextComment textComment) {
                         JavaSourceFile javaSourceFile = getCursor().firstEnclosing(JavaSourceFile.class);
                         distribution.insertRow(ctx, new LanguageDistribution.Row(
                                         javaSourceFile.getSourcePath().toString(),
-                                        ((TextComment) comment).getText(),
-                                        LanguageDetectorModelClient.getInstance().getLanguage(((TextComment) comment).getText()).getLanguage()
+                                        textComment.getText(),
+                                        LanguageDetectorModelClient.getInstance().getLanguage(textComment.getText()).getLanguage()
                                 )
                         );
 

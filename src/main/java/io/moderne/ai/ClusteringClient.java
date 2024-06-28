@@ -76,7 +76,7 @@ public class ClusteringClient {
             Files.copy(requireNonNull(ClusteringClient.class.getResourceAsStream("/get_centers.py")), pyLauncher, StandardCopyOption.REPLACE_EXISTING);
             StringWriter sw = new StringWriter();
             PrintWriter procOut = new PrintWriter(sw);
-            String cmd = String.format("/usr/bin/python3 %s/get_centers.py", MODELS_DIR);
+            String cmd = "/usr/bin/python3 %s/get_centers.py".formatted(MODELS_DIR);
             Process proc = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", cmd});
             EXECUTOR_SERVICE.submit(() -> {
                 new BufferedReader(new InputStreamReader(proc.getInputStream())).lines()
@@ -160,7 +160,7 @@ public class ClusteringClient {
         List<String> data;
 
         public int[] getCenters() {
-            return Arrays.stream(data.get(0).substring(1, data.get(0).length() - 1).trim().split("[\\s,]+"))
+            return Arrays.stream(data.getFirst().substring(1, data.getFirst().length() - 1).trim().split("[\\s,]+"))
                     .map(String::trim)
                     .mapToInt(Integer::parseInt)
                     .toArray();

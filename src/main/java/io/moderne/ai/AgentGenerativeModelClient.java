@@ -305,7 +305,7 @@ public class AgentGenerativeModelClient {
         public boolean isRelated(double threshold) {
             for (CompletionProbability cp : completionProbabilities) {
                 if (cp.getContent().equals(" Yes")) {
-                    return cp.getProbs().get(0).getProb() >= threshold;
+                    return cp.getProbs().getFirst().getProb() >= threshold;
                 }
             }
             return false;

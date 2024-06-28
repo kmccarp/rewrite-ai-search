@@ -69,8 +69,7 @@ public class SpongeBobCase extends Recipe {
             @Override
             public Space visitSpace(Space space, Space.Location loc, ExecutionContext ctx) {
                 return space.withComments(ListUtils.map(space.getComments(), comment -> {
-                    if (comment instanceof TextComment) {
-                        TextComment tc = (TextComment) comment;
+                    if (comment instanceof TextComment tc) {
                         return tc.withText(toSpongeBobCase(tc.getText()));
                     }
                     return comment;

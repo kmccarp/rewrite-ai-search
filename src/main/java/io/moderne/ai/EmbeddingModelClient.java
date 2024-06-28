@@ -90,7 +90,7 @@ public class EmbeddingModelClient {
             Files.copy(requireNonNull(EmbeddingModelClient.class.getResourceAsStream("/get_embedding.py")), pyLauncher, StandardCopyOption.REPLACE_EXISTING);
             StringWriter sw = new StringWriter();
             PrintWriter procOut = new PrintWriter(sw);
-            String cmd = String.format("/usr/bin/python3 %s/get_embedding.py", MODELS_DIR);
+            String cmd = "/usr/bin/python3 %s/get_embedding.py".formatted(MODELS_DIR);
             Process proc = Runtime.getRuntime().exec(new String[]{"/bin/sh", "-c", cmd});
             EXECUTOR_SERVICE.submit(() -> {
                 new BufferedReader(new InputStreamReader(proc.getInputStream())).lines()
@@ -212,7 +212,7 @@ public class EmbeddingModelClient {
         List<String> data;
 
         public float[] getEmbedding() {
-            String d = data.get(0);
+            String d = data.getFirst();
             String[] emStr = d.substring(1, d.length() - 1).split(",");
             float[] em = new float[emStr.length];
             for (int i = 0; i < emStr.length; i++) {

@@ -53,13 +53,13 @@ public class SpellCheckCommentsInFrench extends Recipe {
                         Javadoc.DocComment dc = (Javadoc.DocComment) super.visitDocComment(javadoc, ctx);
 
                         dc = dc.withBody(ListUtils.map(dc.getBody(), docLine -> {
-                            if (docLine instanceof Javadoc.Text) {
-                                String commentText = ((Javadoc.Text) docLine).getText();
+                            if (docLine instanceof Javadoc.Text text) {
+                                String commentText = text.getText();
                                 if (!commentText.trim().isEmpty() && "fr".equals(LanguageDetectorModelClient.getInstance()
                                         .getLanguage(commentText).getLanguage())) {
                                     String fixedComment = SpellCheckerClient.getInstance().getCommentGradio(commentText);
                                     if (!fixedComment.equals(commentText)) {
-                                        docLine = ((Javadoc.Text) docLine).withText(fixedComment);
+                                        docLine = text.withText(fixedComment);
                                     }
                                 }
                             }
@@ -75,8 +75,7 @@ public class SpellCheckCommentsInFrench extends Recipe {
             public Space visitSpace(Space space, Space.Location loc, ExecutionContext ctx) {
                 Space s = super.visitSpace(space, loc, ctx);
                 return s.withComments(ListUtils.map(s.getComments(), c -> {
-                    if (c instanceof TextComment) {
-                        TextComment tc = (TextComment) c;
+                    if (c instanceof TextComment tc) {
                         String commentText = tc.getText();
                         if (!commentText.isEmpty() && "fr".equals(LanguageDetectorModelClient.getInstance()
                                 .getLanguage(commentText).getLanguage())) {

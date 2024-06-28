@@ -61,8 +61,10 @@ public class GetRecommendations extends ScanningRecipe<GetRecommendations.Accumu
 
     @Override
     public String getDescription() {
-        return "This recipe calls an AI model to get recommendations for modernizing" +
-               " the code base by looking at a sample of method declarations.";
+        return """
+               This recipe calls an AI model to get recommendations for modernizing\
+                the code base by looking at a sample of method declarations.\
+               """;
     }
 
     @Value

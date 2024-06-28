@@ -70,9 +70,11 @@ public class EmbeddingPerformance extends DataTable<EmbeddingPerformance.Row> {
         int count;
 
         @Column(displayName = "Histogram",
-                description = "The latency histogram of the requests made to the model (counts). " +
-                              "The histogram is a non-cumulative fixed distribution of 100 buckets " +
-                              "of 0.01 second each.")
+                description = """
+                              The latency histogram of the requests made to the model (counts). \
+                              The histogram is a non-cumulative fixed distribution of 100 buckets \
+                              of 0.01 second each.\
+                              """)
         @Nullable
         List<Integer> histogram;
 
